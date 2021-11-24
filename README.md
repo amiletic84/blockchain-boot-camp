@@ -1,12 +1,66 @@
 # blockchain-boot-camp
-Final project idea for boot camp
+Rock Paper Scissor on ether.
+
+## Project description
+Implement simple Rock Paper Scissor game on blockchain.
+Create smart contract that will host game logic with implemented commit/reveal pattern for submitting moves/choices. 
+Winner of the game will be reworded with fungible game token, ERC20 mintable token.
+Idea is to showcase scenario where series of applications can be created in one ecosystem
+where participation in one game can reword player with tokens that can be used on some other part of application.
+
+Use case where this minted token is used in other contract is not implemented but with ERC20 token that should not be a problem.
 
 
-Idea of this project will be to develop dapp that would have functionality to track ownership of the documents on chain. 
-User should be able to have function to as owner register certain document on chain with signature and additional context data(TBD what document data to put on chain).
-Other user of the platform if they receive document (via email or other chanels) should be able to validate on chain that document is registered and to validate owner (signature) and additional data.
+## How to run this project locally:
 
-This solution should provide easy exchange of documents between parties involved where parties should have publicly available cryptographyc proof of document owner and additional data. 
+### Prerequisites
 
-For the purpose of this project web based solution will be developed but in general mobile application would be better solution.
+- Node.js >= v14
+- Truffle and Ganache
+- Yarn
+- `git checkout master`
 
+### running app - short version
+- `npm install`
+- `ganache-cli --networkId 1337`
+- `truffle build`
+- `truffle migrate --network develop`
+- `cd client`
+- `npm install`
+- `yarn start`
+
+### Contracts
+
+- `npm install` in project root smart contract dependencies
+- `truffle build` - build smart contract
+- `truffle test` - run smart contract unit test
+- `ganache-cli --networkId 1337` - run local network on port `8545`
+- `truffle migrate --network develop` - deploy contracts on local netword
+-  network id is 1337, use this id in Metamask
+
+
+### Frontend
+
+- `cd client`
+- `yarn install`
+- `yarn start`
+- `http://localhost:3000` - open app in browser.
+
+## Simple workflow
+
+1. Enter game web site
+2. Connect account with Metamask
+3. Start new game
+4. choose Rock, Paper, Scissors
+5. Other player also connect and starts new game
+6. Account of opponent is visible on screen
+7. Both players commit there selected moves
+8. Both players reveal moves
+9. Game outcome is calculated and visible, if there is a winner it is reworded with 1000 JSD tokens.
+
+## Directory structure
+
+- `client`: Project's React frontend.
+- `contracts`: Smart contracts that are deployed in the Ropsten testnet.
+- `migrations`: Migration files for deploying contracts in `contracts` directory.
+- `test`: Tests for smart contracts.
