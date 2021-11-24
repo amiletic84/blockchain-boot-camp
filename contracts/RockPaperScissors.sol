@@ -9,8 +9,8 @@ contract RockPaperScissors is AccessControlEnumerable, Pausable {
   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
   /// @notice counter that keeps track of number of the games played
-  /// @dev used to determine what next gameId should be
-  uint public gameIdCount = 0;
+  /// @dev used to determine what next gameId should be, start count from 1
+  uint public gameIdCount = 1;
 
   /// @dev token instance for minting
   GameToken private gameToken;
@@ -112,8 +112,12 @@ contract RockPaperScissors is AccessControlEnumerable, Pausable {
   /// @return returns game id 
   function register() public whenNotPaused() returns(uint) {
     Game storage activeGame = games[gameIdCount];
-    if (activeGame.players.length >= 2) { 
+    if (
+      activeGame.players.length >= 2 || 
+      activeGame.playerMoves[msg.sender].registered
+    ) { 
       // start new game
+      // current game is full or registered player wants to start new game
       gameIdCount = gameIdCount + 1;
       Game storage  newGame = games[gameIdCount];
       newGame.winner = address(0x0);
@@ -194,10 +198,32 @@ contract RockPaperScissors is AccessControlEnumerable, Pausable {
       emit GamerWinner(currentGame.winner, gameId);
 
       // send transaction to mint token and mint token
-      gameToken.mint(currentGame.winner, 1);
+      gameToken.mint(currentGame.winner, 1000);
     }
 
     return true;
+  }
+
+  /// @notice return game by game id
+  /// @dev returns game struct
+  /// @param gameId game id to return
+  /// @return Game from games storage variable
+  function getOpponentMove(uint gameId) public view isRegistered(gameId) returns (PlayerMove memory) {
+    Game storage currentGame = games[gameId];
+    address opponentAddress = address(0x0);
+    if (currentGame.players.length > 1) {
+      opponentAddress = currentGame.players[0] == msg.sender ? currentGame.players[1] : currentGame.players[0];
+    }
+
+    return currentGame.playerMoves[opponentAddress];
+  }
+
+  /// @notice returns players for gameId
+  /// @dev fetch player addresses for gameid
+  /// @param gameId game id to return
+  /// @return array of address
+  function getPlayers(uint gameId) public view isRegistered(gameId) returns (address[] memory) {
+    return games[gameId].players;
   }
 
   /// @notice get move from submitted string

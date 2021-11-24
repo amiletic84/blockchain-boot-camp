@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { injected } from "../connectors";
-import {useAppContext} from '../AppContext';
+import { useAppContext } from '../AppContext';
 
 const useStyles = makeStyles({
   root: {
@@ -33,7 +33,7 @@ const ConnectButton = () => {
       <div className={classes.root}>
         <Typography variant="body2" component="p">
             Account: {shortenAddress(account)}
-          </Typography>
+        </Typography>
         <Button color="inherit" onClick={() => deactivate()}>Disconnect</Button>
       </div>
     );

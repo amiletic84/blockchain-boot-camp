@@ -103,7 +103,7 @@ contract("RockPaperScissors", function (accounts) {
     const balanceAfter = await tokenInstance.balanceOf(player1);
     assert.equal(
       new BN(balanceAfter).toString(), 
-      new BN(balanceBegining).add(new BN(1)).toString(), 
+      new BN(balanceBegining).add(new BN(1000)).toString(), 
       "Player 1 address balance was not increased after winning the game.");
   })
 
@@ -130,7 +130,7 @@ contract("RockPaperScissors", function (accounts) {
     const balanceAfter = await tokenInstance.balanceOf(player1);
     assert.equal(
       new BN(balanceAfter).toString(), 
-      new BN(balanceBegining).add(new BN(1)).toString(), 
+      new BN(balanceBegining).add(new BN(1000)).toString(), 
       "Player 1 address balance was not increased after winning the game.");
   })
 
@@ -163,7 +163,7 @@ contract("RockPaperScissors", function (accounts) {
     const balanceAfter = await tokenInstance.balanceOf(player2);
     assert.equal(
       new BN(balanceAfter).toString(), 
-      new BN(balanceBegining).add(new BN(1)).toString(), 
+      new BN(balanceBegining).add(new BN(1000)).toString(), 
       "Player 2 address balance was not increased after winning the game.");
   })
     
@@ -235,7 +235,6 @@ contract("RockPaperScissors", function (accounts) {
     // reveal phase    
     await catchRevert(gameInstance.reveal(gameId, move2, {from: otherPlayer}));
   });
-
   
   it("when game is over and moves revealed cannot reveal more times", async () => {
     const move1 = `1${web3.utils.randomHex(4)}`; // rock

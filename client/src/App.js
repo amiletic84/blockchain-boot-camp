@@ -19,9 +19,7 @@ export default function App () {
         <Web3ReactProvider getLibrary={getLibrary}>
           <div>
           <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
+          <Route path="/" component={Home} />
           </div>
         </Web3ReactProvider>
       </AppContextProvider>
