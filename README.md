@@ -10,10 +10,17 @@ where participation in one game can reword player with tokens that can be used o
 
 Use case where this minted token is used in other contract is not implemented but with ERC20 token that should not be a problem.
 
+Notice: 
+- Game require two players from different accounts and browsers
+- React app does not store any data, when closed game cannot be reopened/retrieved
+- Game require installed metamask
+
+## Deployed APP
+https://amiletic84.github.io/blockchain-developer-bootcamp-final-project/
+
 
 ## Demo video
 https://user-images.githubusercontent.com/90627773/143504633-63a0fb6d-072e-4093-b851-bb6d6993e93a.mp4
-
 
 
 ## How to run this project locally:
@@ -24,6 +31,7 @@ https://user-images.githubusercontent.com/90627773/143504633-63a0fb6d-072e-4093-
 - Truffle and Ganache
 - Yarn
 - `git checkout master`
+- Metamask installed in two browsers and two accounts for testing (import ganache accounts with prefunded eth)
 
 ### running app - short version
 - `npm install`
@@ -40,8 +48,8 @@ https://user-images.githubusercontent.com/90627773/143504633-63a0fb6d-072e-4093-
 - `truffle build` - build smart contract
 - `truffle test` - run smart contract unit test
 - `ganache-cli --networkId 1337` - run local network on port `8545`
-- `truffle migrate --network develop` - deploy contracts on local netword
--  network id is 1337, use this id in Metamask
+- `truffle migrate --network develop` - deploy contracts on local network
+-  network id is `1337`, port `8545`, use same network id in Metamask
 
 
 ### Frontend
@@ -50,6 +58,7 @@ https://user-images.githubusercontent.com/90627773/143504633-63a0fb6d-072e-4093-
 - `yarn install`
 - `yarn start`
 - `http://localhost:3000` - open app in browser.
+- Metamask installed in two browsers and two accounts ()
 
 ## Simple workflow
 
