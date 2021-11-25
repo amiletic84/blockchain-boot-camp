@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "@openzeppelin/contracts": "^4.3.2",
-    "keccak256": "^1.0.3"
+    "dotenv": "^10.0.0",
+    "keccak256": "^1.0.3",
+    "truffle-hdwallet-provider": "^1.0.17"
   }
 }

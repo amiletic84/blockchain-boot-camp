@@ -52,7 +52,7 @@ Use case where this minted token is used in other contract is not implemented bu
 2. Connect account with Metamask
 3. Start new game
 4. choose Rock, Paper, Scissors
-5. Other player also connect and starts new game
+5. Other player also connect and starts new game - from a different browser
 6. Account of opponent is visible on screen
 7. Both players commit there selected moves
 8. Both players reveal moves

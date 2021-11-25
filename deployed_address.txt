@@ -1,0 +1,14 @@
+Deploying 'Migrations'
+   ----------------------
+   > transaction hash:    0x6967745e4c07be9b39316eb87835084eb0a6e68ae455be0865e9ace4a4a1855a
+   > contract address:    0x3C79c0186c6D7C427c07245D6BF69be24d0A6c1C
+
+Deploying 'GameToken'
+   ---------------------
+   > transaction hash:    0xfaa2d9cf61c8945417f976bdf60b50f94f3b9baf59da9adc72d00700b387dcbf
+   > contract address:    0x33B88F62296648B0d7c87563c1dA85011E20694f
+
+Deploying 'RockPaperScissors'
+   -----------------------------
+   > transaction hash:    0x9a8252013c2210ebab342d3a02f11846db11b226dc6969c2a0453db2a8710c74
+   > contract address:    0xa7fe29BCfa63b07CEF5A3b394D697E1096bF9A6d
