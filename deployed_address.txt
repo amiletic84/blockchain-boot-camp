@@ -1,3 +1,6 @@
+> Network name:    'ropsten'
+> Network id:      3
+
 Deploying 'Migrations'
    ----------------------
    > transaction hash:    0x6967745e4c07be9b39316eb87835084eb0a6e68ae455be0865e9ace4a4a1855a
