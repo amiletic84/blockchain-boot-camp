@@ -58,6 +58,21 @@ https://user-images.githubusercontent.com/90627773/143504633-63a0fb6d-072e-4093-
 - `truffle migrate --network develop` - deploy contracts on local network
 -  network id is `1337`, port `8545`, use same network id in Metamask
 
+### contract deployment
+This dApp uses `Ropsten` test network.
+In order to deploy contract to `Ropsten`: 
+
+- Metamask installed and mnemonic saved
+- Obtain ropsten test eth
+- Open infura account and create project
+- populate .env file with following variables
+
+- WALLET_MNEMONIC=your mnemonic from metamask
+- INFURA_PROJECT_ID=infura project id
+- OWNER_ID=account on ropsten that will be owner of the contracts
+
+- `truffle migrate --network ropsten` - this command will deploy contracts to ropsten network
+
 ### Frontend
 
 - `cd client`
