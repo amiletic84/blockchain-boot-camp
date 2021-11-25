@@ -11,6 +11,11 @@ where participation in one game can reword player with tokens that can be used o
 Use case where this minted token is used in other contract is not implemented but with ERC20 token that should not be a problem.
 
 
+## Demo video
+https://user-images.githubusercontent.com/90627773/143504633-63a0fb6d-072e-4093-b851-bb6d6993e93a.mp4
+
+
+
 ## How to run this project locally:
 
 ### Prerequisites
