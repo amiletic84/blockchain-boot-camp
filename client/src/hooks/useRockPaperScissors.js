@@ -34,7 +34,7 @@ export const useRockPaperScissors = () => {
       return newGameId;
     }
     catch (error) {
-      setAppError(`Error executing register transaction ${error}`)
+      setAppError(`Error executing register transaction`)
     }
   };
 
@@ -50,14 +50,19 @@ export const useRockPaperScissors = () => {
       setCommitedMove(plainMove);
     }
     catch (error) {
-      setAppError(`Error executing commit move: ${error}`)
+      setAppError(`Error executing commit transaction`)
     }
   };
 
   const revealMove = async (id, plainMove) => {
-    const result = await contract.reveal(BigNumber.from(Number(id)), plainMove, {from: account});
-    await result.wait(1);
-    setIsRevealed(true);
+    try {
+      const result = await contract.reveal(BigNumber.from(Number(id)), plainMove, {from: account});
+      await result.wait(1);
+      setIsRevealed(true);
+    }
+    catch (error) {
+      setAppError(`Error executing reveal transaction`)
+    }
   };
 
   const setGameEventListener = async (id) => {
