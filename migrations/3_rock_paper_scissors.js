@@ -8,6 +8,6 @@ module.exports = async function(deployer, network, accounts) {
   const tokenInstance = await GameToken.deployed();
   const rockPaperScissorsInstance = await deployer.deploy(RockPaperScissors, tokenInstance.address);
   
-  const owner = network === "develop" ? accounts[0] : process.env.OWNER_ID;
+  const owner = network === "develop" || network === "test" ? accounts[0] : process.env.OWNER_ID;
   await tokenInstance.grantRole(minterRole, rockPaperScissorsInstance.address, { from: owner });
 };
